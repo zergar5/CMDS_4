@@ -1,6 +1,6 @@
 ﻿namespace CMDS_4.Methods.PredictorCorrectorMethods;
 
-public class PredictorCorrector4Method : Method
+public class PredictorCorrector4Method : PredictorCorrectorMethod
 {
     public override string MethodName => "PEC4";
 
@@ -30,7 +30,7 @@ public class PredictorCorrector4Method : Method
         }
         return solutions;
     }
-    private double Prediction(List<double> functionsValues, double y, double h)
+    protected override double Prediction(List<double> functionsValues, double y, double h)
     {
         var yPrediction = y + h *
         (
@@ -42,7 +42,7 @@ public class PredictorCorrector4Method : Method
         return yPrediction;
     }
 
-    private double Correction(List<double> functionsValues, double y, double h)
+    protected override double Correction(List<double> functionsValues, double y, double h)
     {
         var yNext = y + h *
         (

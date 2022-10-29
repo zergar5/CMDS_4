@@ -1,6 +1,6 @@
 ﻿namespace CMDS_4.Methods.ImplicitMethods;
 
-public class Adams3IMethod : Method
+public class Adams3IMethod : AdamsIMethod
 {
     public override string MethodName => "Adams3I";
 
@@ -30,7 +30,7 @@ public class Adams3IMethod : Method
         return solutions;
     }
 
-    private double FindX(List<double> functionsValues, double y, double h)
+    protected override double FindX(List<double> functionsValues, double y, double h)
     {
         var x = y + h *
         (
@@ -40,7 +40,7 @@ public class Adams3IMethod : Method
         return x;
     }
 
-    private double Approximation(Func<double, double, double> function, List<double> functionsValues, double y, double x, double t, double h)
+    protected override double Approximation(Func<double, double, double> function, List<double> functionsValues, double y, double x, double t, double h)
     {
         var fX = y + h *
         (
